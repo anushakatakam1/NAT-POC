@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class AppComponent {
 
   UserData: any;
 
-  constructor(public authSrvc: AuthenticationService) {
+  constructor(public authSrvc: AuthenticationService, public router: Router) {
     this.IsLoggedIn = this.authSrvc.IsUserLoggedIn();
     this.UserData = JSON.parse(localStorage.getItem('user'));
     console.log(this.UserData)
@@ -25,6 +26,10 @@ export class AppComponent {
     });
 
 
+  }
+
+  Navigate() {
+    this.router.navigate(['orders']);
   }
 
   Logout() {
