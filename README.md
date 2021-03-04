@@ -1,6 +1,6 @@
-# OrderManagementSystem
+# CovidTrackingSystem
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3. This is used to track the covid details for each state with active, recovered, deceased and confirmed cases. User can select any of these sections to visualize the data. Used ngx-chart to achieve this. 
 
 ## Development server
 
@@ -21,6 +21,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Firebase deploy
+ng build --prod
+firebase deploy
 
 ## Further help
 
