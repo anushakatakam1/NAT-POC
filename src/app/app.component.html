@@ -45,14 +45,16 @@
     <!-- Content -->
     <div>
         <nav class="navbar navbar-default bg-color " style="height: 70px;" *ngIf="IsLoggedIn">
-            <div class="container-fluid d-flex justify-content-end">
+            <div class="container-fluid d-flex">
                 <!-- <ul style="margin-bottom: 0;"> -->
-                <!-- <div class="d-flex">
-                        <img src="./assets/logo1.jpg" class="d-flex justify-content-start" width="50" height="50">
-                        <h4 class="pl-3 d-flex justify-content-center align-self-center white-color">Order Management
-                            System</h4>
-                    </div> -->
-                <div class="cursor">
+                <div class="cursor mr-3 show">
+                    <i class='fa fa-bars white-color'></i>
+                </div>
+                <div class="d-flex show">
+                    <img src="./assets/logo1.jpg" class="d-flex justify-content-start" width="50" height="50">
+                    <h4 class="pl-3 d-flex justify-content-center align-self-center white-color">Covid Tracker</h4>
+                </div>
+                <div class="cursor justify-content-end">
                     <i class='fas fa-power-off white-color' [ngbPopover]="profile"></i>
                 </div>
                 <!-- </ul> -->
