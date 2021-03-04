@@ -5,6 +5,7 @@
             <h4 class="color d-flex justify-content-center pb-4">Sign In</h4>
 
             <form [formGroup]="LoginForm">
+                <span *ngIf="IsSubmitted" class="warn-color form-text text-muted mb-3"> Invaild Username or Password</span>
                 <div class="form-group">
                     <label for="userName">UserName</label>
                     <input type="text" formControlName="username" class="form-control" id="userName"

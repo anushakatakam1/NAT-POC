@@ -21,14 +21,23 @@
         <header>
             <div class="d-flex pl-2 mt-3">
                 <img src="./assets/logo1.jpg" width="50" height="50" class="brdr-rd">
-                <h4 class="pl-3 d-flex align-self-center white-color"><i>OMS</i></h4>
+                <h4 class="pl-3 d-flex align-self-center white-color"><i>CTS</i></h4>
             </div>
         </header>
-        <ul class="nav mt-4 cursor" style="background: #07075f;" (click)="Navigate()">
+        <ul class="nav mt-4 cursor" [ngClass]="{'selectedbg-color': router?.url == '/home'}" (click)="Navigate('home')">
+            <li>
+                <div class="d-flex pl-3" style="min-height: 44px;">
+                    <i class="fas fa-home pr-2 white-color" style="align-self:center;"></i>
+                    <h6 class="pl-3 white-color" style="align-self:center;">Home</h6>
+                </div>
+            </li>
+        </ul>
+        <ul class="nav cursor" (click)="Navigate('covidlist')"
+            [ngClass]="{'selectedbg-color': router?.url == '/covidlist'}">
             <li>
                 <div class="d-flex pl-3" style="min-height: 44px;">
                     <i class='fas fa-list pr-2 white-color' style="align-self:center;"></i>
-                    <h6 class="pl-3 white-color" style="align-self:center;">Orders List</h6>
+                    <h6 class="pl-3 white-color" style="align-self:center;">Covid list</h6>
                 </div>
             </li>
         </ul>

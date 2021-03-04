@@ -1,0 +1,14 @@
+app-covid-dashboard {
+    .cardheight {
+        width: 12rem !important;
+        height: 5rem !important;
+    }
+    .cardheight:hover {
+        background-color: grey;
+        color: white;
+    }
+    .selectedcard {
+        background-color: blue;
+        color: white;
+    }
+}

@@ -13,21 +13,34 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersBackendProvider } from './order-interceptor.service';
 import { LoginBackendProvider } from './login-interceptor.service';
-
+import { CovidDashboardComponent } from './covid-dashboard/covid-dashboard.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { NgxGraphModule } from '@swimlane/ngx-graph';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { RedirectPageComponent } from './redirect-page/redirect-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     OrderslistComponent,
-    HomeComponent
+    HomeComponent,
+    CovidDashboardComponent,
+    RedirectPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleChartsModule.forRoot(),
+    NgxGraphModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [LoginBackendProvider, OrdersBackendProvider],
   bootstrap: [AppComponent]

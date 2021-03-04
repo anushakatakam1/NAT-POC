@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   LoginForm: any;
   returnUrl: any;
+  IsSubmitted: boolean;
 
   constructor(public fb: FormBuilder, private router: Router, private route: ActivatedRoute,
     private authenticationService: AuthenticationService) {
@@ -39,9 +40,12 @@ export class LoginComponent implements OnInit {
 
   OnSubmit() {
     if (this.LoginForm.valid) {
+      this.IsSubmitted= false;
       this.UserLogin();
     } else {
+      this.IsSubmitted= true;
       console.log('Invalid');
+
     }
   }
 
@@ -50,8 +54,8 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-        console.log(this.returnUrl)
-          this.router.navigate(['./orders']);
+          console.log(this.returnUrl)
+          this.router.navigate(['home']);
         });
   }
 

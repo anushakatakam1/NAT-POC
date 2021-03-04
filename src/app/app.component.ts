@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterState, RouterStateSnapshot } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
 
 @Component({
@@ -17,19 +17,18 @@ export class AppComponent {
 
   constructor(public authSrvc: AuthenticationService, public router: Router) {
     this.IsLoggedIn = this.authSrvc.IsUserLoggedIn();
+    console.log(router);
     this.UserData = JSON.parse(localStorage.getItem('user'));
-    console.log(this.UserData)
+    console.log(this.UserData);
 
     this.authSrvc.UserData.subscribe((val: any) => {
       this.IsLoggedIn = val ? true : false;
       this.UserData = val;
     });
-
-
   }
 
-  Navigate() {
-    this.router.navigate(['orders']);
+  Navigate(url: any) {
+    this.router.navigate([url]);
   }
 
   Logout() {
