@@ -1,4 +1,4 @@
-<header class="header bg-color d-flex align-items-center justify-content-between">
+<header *ngIf="IsLoggedIn" class="header bg-color d-flex align-items-center justify-content-between">
     <div class="d-flex pl-2 align-items-center">
         <div (click)="ShoworHidemenu()" *ngIf="IsSmall">
             <i class='fa fa-bars white-color ml-3 mr-3'></i>
@@ -13,7 +13,7 @@
     </div>
 </header>
 <div class="d-flex">
-    <div class="sidebar" *ngIf="Showmenu">
+    <div class="sidebar" *ngIf="Showmenu && IsLoggedIn">
         <nav class="bg-color">
             <div class="d-flex align-items-center pl-2  minheight white-color cursor" *ngFor="let option of MenuOptions"
                 [ngClass]="{'selectedbg-color': router?.url == '/'+option.URL}" (click)="Navigate(option.URL)">
