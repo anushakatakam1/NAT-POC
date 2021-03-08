@@ -20,6 +20,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { RedirectPageComponent } from './redirect-page/redirect-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,

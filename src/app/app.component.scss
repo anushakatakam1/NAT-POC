@@ -1,125 +1,44 @@
-body {
-  overflow-x: hidden;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
+.header {
+  min-height: 4.5rem;
+ }
+
+.sidebar {
+  width: 250px;
+  background: navy;
+  z-index: 1000 !important;
+  overflow-y: auto;
+  /* left: 250px; */
+  height: 100%;
+  position: fixed;
 }
 
-/* Toggle Styles */
-
-.viewport {
-  padding-left: 250px;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+.minheight {
+  min-height: 3rem;
 }
 
 .content {
-  width: 100%;
-  position: relative;
-  margin-right: 0;
-}
-
-/* Sidebar Styles */
-
-#sidebar {
-  z-index: 1000;
+  width: calc(100% - 250px) !important;
+  height: calc(100% - 4.5rem) !important;
   position: fixed;
+  margin-right: 0;
   left: 250px;
-  width: 250px;
-  height: 100%;
-  margin-left: -250px;
   overflow-y: auto;
-  background: navy;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#sidebar header {
-  // background-color: #263238;
-  font-size: 20px;
-  line-height: 52px;
-  text-align: center;
-}
-
-#sidebar header a {
-  color: #fff;
-  display: block;
-  text-decoration: none;
-}
-
-#sidebar header a:hover {
-  color: #fff;
-}
-
-#sidebar .nav {
-}
-
-#sidebar .nav a {
-  background: none;
-  border-bottom: 1px solid #455a64;
-  color: #cfd8dc;
-  font-size: 14px;
-  padding: 16px 24px;
-}
-
-#sidebar .nav a:hover {
-  background: none;
-  color: #eceff1;
-}
-
-#sidebar .nav a i {
-  margin-right: 16px;
-}
-.show {
-  visibility: hidden;
 }
 
 @media screen and (min-width: 0px) and (max-width: 600px) {
-  .hide {
-    display: none;
-  }
-
-  .show {
-    visibility: visible;
-  }
-  
-
-  #sidebar {
-    z-index: 1000;
-    position: fixed;
-    left: 0px;
-    width: 0px;
-    overflow-y: auto;
+  .sidebar {
+    width: 250px;
     background: navy;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-  }
-
-  .viewport {
-    padding-left: 0px;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    z-index: 1 !important;
+    overflow-y: auto;
+    height: 100%;
+    position: fixed;
   }
 
   .content {
-    width: 100%;
-    position: fixed;
+    width: 100% !important;
+    position: relative;
     margin-right: 0;
+    left: 0;
   }
-}
-
-h6,
-h4 {
-  margin-bottom: 0px !important;
-}
-
-.brdr-rd {
-  border-radius: 20px;
 }

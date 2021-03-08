@@ -88,7 +88,6 @@ export class CovidDashboardComponent implements OnInit {
       }
 
       this.districts = Coviddata.districts;
-      console.log(this.districts);
     });
   }
 
@@ -99,7 +98,6 @@ export class CovidDashboardComponent implements OnInit {
   }
 
   getConfirmedData(data: any) {
-    console.log(this.CovidInfo);
     this.displaydata = data;
     this.graphData = [];
     let datatype: any = [];
@@ -116,7 +114,6 @@ export class CovidDashboardComponent implements OnInit {
       }
       this.graphData = datatype;
     });
-    console.log(this.CovidInfo);
   }
 
 }

@@ -1,87 +1,43 @@
-<!-- <app-login></app-login>
-
-    <div class="d-flex" style="width: 100%;">
-        <div style="border-right: 1px solid #80808033;" class="bg-color box-width1 hide">
-           
-
-           
+<header class="header bg-color d-flex align-items-center justify-content-between">
+    <div class="d-flex pl-2 align-items-center">
+        <div (click)="ShoworHidemenu()" *ngIf="IsSmall">
+            <i class='fa fa-bars white-color ml-3 mr-3'></i>
         </div>
-
-        <div class="box-width2">
-            <div style="height: 46px;" class="bg-color p-2">
-                <h4 class="d-flex justify-content-center white-color">Orders</h4>
-            </div>
-            <router-outlet></router-outlet>
+        <div> <img src="./assets/logo1.jpg" width="50" height="50" class="rounded-circle"></div>
+        <div>
+            <h4 class="pl-3 d-flex align-self-center white-color"><i>CTS</i></h4>
         </div>
-    </div> -->
-
-<div [ngClass]="{'viewport':IsLoggedIn}">
-    <!-- Sidebar -->
-    <div id="sidebar" class="hide" *ngIf="IsLoggedIn">
-        <header>
-            <div class="d-flex pl-2 mt-3">
-                <img src="./assets/logo1.jpg" width="50" height="50" class="brdr-rd">
-                <h4 class="pl-3 d-flex align-self-center white-color"><i>CTS</i></h4>
-            </div>
-        </header>
-        <ul class="nav mt-4 cursor" [ngClass]="{'selectedbg-color': router?.url == '/home'}" (click)="Navigate('home')">
-            <li>
-                <div class="d-flex pl-3" style="min-height: 44px;">
-                    <i class="fas fa-home pr-2 white-color" style="align-self:center;"></i>
-                    <h6 class="pl-3 white-color" style="align-self:center;">Home</h6>
-                </div>
-            </li>
-        </ul>
-        <ul class="nav cursor" (click)="Navigate('covidlist')"
-            [ngClass]="{'selectedbg-color': router?.url == '/covidlist'}">
-            <li>
-                <div class="d-flex pl-3" style="min-height: 44px;">
-                    <i class='fas fa-list pr-2 white-color' style="align-self:center;"></i>
-                    <h6 class="pl-3 white-color" style="align-self:center;">Covid list</h6>
-                </div>
-            </li>
-        </ul>
     </div>
-    <!-- Content -->
-    <div>
-        <nav class="navbar navbar-default bg-color " style="height: 70px;" *ngIf="IsLoggedIn">
-            <div class="container-fluid d-flex">
-                <!-- <ul style="margin-bottom: 0;"> -->
-                <div class="cursor mr-3 show">
-                    <i class='fa fa-bars white-color' [ngbPopover]="list"></i>
-                </div>
-                <div class="d-flex show">
-                    <img src="./assets/logo1.jpg" class="d-flex justify-content-start" width="50" height="50">
-                    <h4 class="pl-3 d-flex justify-content-center align-self-center white-color">Covid Tracker</h4>
-                </div>
-                <div class="cursor justify-content-end">
-                    <i class='fas fa-power-off white-color' [ngbPopover]="profile"></i>
-                </div>
-                <!-- </ul> -->
+    <div class="cursor d-flex justify-content-end mr-4">
+        <i class='fas fa-power-off white-color' [ngbPopover]="profile"></i>
+    </div>
+</header>
+<div class="d-flex">
+    <div class="sidebar" *ngIf="Showmenu">
+        <nav class="bg-color">
+            <div class="d-flex align-items-center pl-2  minheight white-color cursor" *ngFor="let option of MenuOptions"
+                [ngClass]="{'selectedbg-color': router?.url == '/'+option.URL}" (click)="Navigate(option.URL)">
+                <i class={{option.icon}} style="align-self:center;padding-right: 10px;"></i>
+                <span>{{option.Name}}</span>
             </div>
-
         </nav>
-        <div class="container-fluid">
-            <router-outlet></router-outlet>
-        </div>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<ng-template #profile>
+    <div class="d-flex justify-content-center">
+        <i class='fas fa-user-circle' style="font-size: 85px;"></i>
+    </div>
+    <div class="d-flex justify-content-center pb-3 pt-1" style="width: 250px;">
+        <h4 class="color">{{UserData?.firstName}}&nbsp;{{UserData?.lastName}}</h4>
     </div>
 
-    <ng-template #profile>
-        <div class="d-flex justify-content-center">
-            <i class='fas fa-user-circle' style="font-size: 85px;"></i>
-        </div>
-        <div class="d-flex justify-content-center pb-3 pt-1" style="width: 250px;">
-            <h4 class="color">{{UserData?.firstName}}&nbsp;{{UserData?.lastName}}</h4>
-        </div>
+    <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-light">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="Logout()">Logout</button>
+    </div>
 
-        <div class="modal-footer d-flex justify-content-between">
-            <button type="button" class="btn btn-light">Cancel</button>
-            <button type="button" class="btn btn-primary" (click)="Logout()">Logout</button>
-        </div>
-
-    </ng-template>
-    <ng-template #list style="width: 15rem;">
-        <h6 class="p-2" (click)="Navigate('home')">Home</h6>
-        <h6 class="p-2" (click)="Navigate('covidlist')">Covid list</h6>
-    </ng-template>
-</div>
+</ng-template>

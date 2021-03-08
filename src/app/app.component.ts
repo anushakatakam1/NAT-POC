@@ -1,6 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, RouterState, RouterStateSnapshot } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
+import { SreenSizeService } from './sreen-size.service';
 
 @Component({
   selector: 'app-root',
@@ -15,20 +16,65 @@ export class AppComponent {
 
   UserData: any;
 
-  constructor(public authSrvc: AuthenticationService, public router: Router) {
-    this.IsLoggedIn = this.authSrvc.IsUserLoggedIn();
-    console.log(router);
-    this.UserData = JSON.parse(localStorage.getItem('user'));
-    console.log(this.UserData);
+  MenuOptions: any = [];
 
+  Showmenu: boolean = true;
+
+  IsSmall: boolean = false;
+
+  constructor(public authSrvc: AuthenticationService, public router: Router,
+    public size: SreenSizeService) {
+    this.IsLoggedIn = this.authSrvc.IsUserLoggedIn();
+    this.IsSmall = window.screen.width <= 600 ? true : false;
+    this.UserData = JSON.parse(localStorage.getItem('user'));
+    this.PrepareMenuOptions();
     this.authSrvc.UserData.subscribe((val: any) => {
       this.IsLoggedIn = val ? true : false;
       this.UserData = val;
     });
+
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.IsSmall = event.currentTarget.innerWidth <= 600 ? true : false;
+    if (this.IsSmall) {
+      this.Showmenu = false;
+    } else {
+      this.Showmenu = true;
+    }
+  }
+
 
   Navigate(url: any) {
     this.router.navigate([url]);
+    if (this.IsSmall) {
+      this.Showmenu = false;
+    }
+  }
+
+  PrepareMenuOptions() {
+    this.MenuOptions = [
+      {
+        Name: 'Home',
+        URL: 'home',
+        icon: 'fas fa-home'
+      },
+      {
+        Name: 'Covid List',
+        URL: 'covidlist',
+        icon: 'fas fa-list'
+      },
+      {
+        Name: 'Orders',
+        URL: 'orders',
+        icon: 'fas fa-list'
+      }
+    ];
+  }
+
+  ShoworHidemenu() {
+    this.Showmenu = !this.Showmenu;
   }
 
   Logout() {

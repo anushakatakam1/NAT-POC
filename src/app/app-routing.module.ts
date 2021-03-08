@@ -6,14 +6,15 @@ import { CovidDashboardComponent } from './covid-dashboard/covid-dashboard.compo
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { OrderslistComponent } from './orderslist/orderslist.component';
+import { RedirectPageComponent } from './redirect-page/redirect-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
-  // { path: 'orders', component: OrderslistComponent, canActivate: [AuthGuardService] },
+  { path: 'orders', component: OrderslistComponent, canActivate: [AuthGuardService] },
   { path: 'covidlist', component: CovidDashboardComponent, canActivate: [AuthGuardService] },
-  { path: '**', redirectTo: '' }
+  { path: '**', component: RedirectPageComponent}
 ];
 
 @NgModule({
