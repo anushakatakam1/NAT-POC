@@ -1,18 +1,30 @@
-<div style="height: 100%;">
-    <div class="d-flex justify-content-center mt-5">
-        <div class="card p-3" style="width: 25rem;">
+<div class="login">
 
-            <h4 class="color d-flex justify-content-center pb-4">Sign In</h4>
 
-            <form [formGroup]="LoginForm">
-                <span *ngIf="IsSubmitted" class="warn-color form-text text-muted mb-3"> Invaild Username or Password</span>
+    <header class="header d-flex align-items-center justify-content-end pr-5">
+        <a class="loginbtn-font" (click)="CreateModal(Login)"> Login</a>
+        <a class="signup-font" (click)="CreateModal(Register)"> Sign Up</a>
+    </header>
+    <!-- <div class="d-flex align-items-center justify-content-center"> -->
+    <!-- <div class="d-flex justify-content-center"> -->
+    <ng-template #Login>
+
+        <div class="card p-3" style="background: black;">
+            <button type="button" class="close closePop" data-dismiss="modal" aria-label="Close" (click)="CloseModal()">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="white-color d-flex justify-content-center pb-4">Sign In</h3>
+            <br>
+            <form [formGroup]="LoginForm" class="pr-5 pl-5">
+                <span *ngIf="IsSubmitted" class="warn-color mb-3"> Invaild Username or
+                    Password</span>
                 <div class="form-group">
                     <label for="userName">UserName</label>
                     <input type="text" formControlName="username" class="form-control" id="userName"
                         placeholder="Enter User Name">
                     <small
                         *ngIf="LoginForm.controls.username.invalid && (LoginForm.controls.username.dirty || LoginForm.controls.username.touched)"
-                        id="userName" class="warn-color form-text text-muted">Please Enter User Name</small>
+                        id="userName" class="warn-color">Please Enter User Name</small>
                 </div>
                 <div class="form-group">
                     <label for="Password">Password</label>
@@ -20,16 +32,91 @@
                         placeholder="Password">
                     <small
                         *ngIf="LoginForm.controls.password.invalid && (LoginForm.controls.password.dirty || LoginForm.controls.password.touched)"
-                        id="userName" class="warn-color form-text text-muted">Please Enter Password</small>
+                        id="userName" class="warn-color">Please Enter Password</small>
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" formControlName="RememberMe" id="rememberme">
                     <label class="form-check-label" for="rememberme">Remember me</label>
                 </div>
-                <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Login</button>
+                <div class="pt-4">
+                    <button type="submit" class="btn btn-primary login-btn" (click)="OnSubmit()">Login</button>
+                </div>
+                <div class="social pt-2">
+                    <p> or Sign In with Social account</p>
+                </div>
+                <div class="d-flex justify-content-between pb-3 pt-3 pl-5 pr-5">
+                    <a class="google-login sociallogin-sizes"></a>
+                    <img src="./assets/facebook.svg" class="sociallogin-sizes">
+                    <a class="twitter-login sociallogin-sizes"></a>
+                </div>
+            </form>
+
+
+
+        </div>
+    </ng-template>
+
+    <ng-template #Register>
+        <div class="card p-3" style="background: black;">
+            <button type="button" class="close closePop" data-dismiss="modal" aria-label="Close" (click)="CloseModal()">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="white-color d-flex justify-content-center pb-4">Sign Up</h3>
+            <br>
+
+            <form [formGroup]="RegistrationForm" class="pr-5 pl-5">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" formControlName="fullName" class="form-control" id="fullName"
+                        placeholder="Enter Full Name">
+                    <small
+                        *ngIf="RegistrationForm.controls.fullName.invalid && (RegistrationForm.controls.fullName.dirty || RegistrationForm.controls.fullName.touched)"
+                        id="fullName" class="warn-color form-text text-muted">Please Enter Full Name</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="text" formControlName="email" class="form-control" id="Email"
+                        placeholder="Enter Email">
+                    <small
+                        *ngIf="RegistrationForm.controls.email.invalid && (RegistrationForm.controls.email.dirty || RegistrationForm.controls.email.touched)"
+                        id="Email" class="warn-color form-text text-muted">Please Enter Email</small>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="pNumber">Phone Number</label>
+                    <input type="text" formControlName="phone" class="form-control" id="pNumber"
+                        placeholder="Enter Phone Number">
+                    <small
+                        *ngIf="RegistrationForm.controls.phone.invalid && (RegistrationForm.controls.phone.dirty || RegistrationForm.controls.phone.touched)"
+                        id="pNumber" class="warn-color form-text text-muted">Please Enter Phone Number</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" id="password"
+                        placeholder="Enter Password">
+                    <small
+                        *ngIf="RegistrationForm.controls.password.invalid && (RegistrationForm.controls.password.dirty || RegistrationForm.controls.password.touched)"
+                        id="password" class="warn-color form-text text-muted">Please Enter Password</small>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" class="btn btn-primary login-btn" (click)="OnSubmit()">Register</button>
+                </div>
+                <div class="social">
+                    <p> or Sign Up with Social account</p>
+                </div>
+
+                <div class="d-flex justify-content-between pb-3 pt-3 pl-5 pr-5">
+                    <a class="google-login sociallogin-sizes"></a>
+                    <img src="./assets/facebook.svg" class="sociallogin-sizes">
+                    <a class="twitter-login sociallogin-sizes"></a>
                 </div>
             </form>
         </div>
-    </div>
+    </ng-template>
+    <!-- </div> -->
+    <!-- </div> -->
 </div>

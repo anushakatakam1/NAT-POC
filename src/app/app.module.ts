@@ -41,7 +41,7 @@ import { RedirectPageComponent } from './redirect-page/redirect-page.component';
     GoogleChartsModule.forRoot(),
     NgxGraphModule,
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [LoginBackendProvider, OrdersBackendProvider],
   bootstrap: [AppComponent]

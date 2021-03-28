@@ -4,12 +4,20 @@
   color: #007bff !important;
 }
 
+.font22{
+  font-size: 22px;
+}
+
 .bg-color-grey {
   background-color: grey;
 }
 
 .bg-color {
   background-color: navy !important;
+}
+
+label{
+  color: grey !important;
 }
 
 .color {
@@ -35,4 +43,41 @@
 
 .selectedbg-color {
   background-color: #050544 !important;
+}
+
+.close{
+  position: absolute;
+  right: -17px;
+  top: -16px;
+  background: grey!important;
+  color: #fff !important;
+  border-radius: 100% !important;
+  opacity: 1 !important;
+  padding: 0 !important;
+  font-size: 20px !important;
+  width: 35px !important;
+  height: 35px !important;
+  line-height: 19px !important;
+  box-shadow: rgb(0 0 0 / 40%) 0 0 12px !important;
+  border: 0 !important;
+  font-weight: 400 !important;
+ }
+
+a{cursor: pointer;}
+ .login{min-height: 99.9%;background-image: url('./assets/BOOK3.jpeg');background-repeat: no-repeat;background-size: 100% 100%;}
+ .loginbtn-font{font-size: 20px;  font-weight: 500;  padding: 0px 10px;color: #ef5959c9 !important; min-width: 100px;}
+ .login-btn{max-width: 100%;width: 100%;display: block;font-weight: 600 !important;font-size: 22px !important;}
+ .signup-font{font-size: 18px;font-weight: 500;padding: 2px 20px;background: navy;color: #fff !important;border-radius: 8px;line-height: 2.1;}
+ .social{margin:15px 0;}
+.social p{color:#919191;text-align:center;position:relative;margin-bottom: 0px;}
+.social p:before{content:"";display:block;width:76px;height:1px;background:#919191;left:0;top:55%;position:absolute}
+.social p:after{content:"";display:block;width:76px;height:1px;background:#919191;right:0;top:55%;position:absolute}
+.social_icon{display:flex;justify-content:space-between; margin-top: 10px;}
+.social_icon img{background:#555;border-radius:6px;padding:12px 40px;width:90%}
+.google-login{background-image: url('./assets/google.svg');}
+.fb-login{background-image: url('./assets/facebook.svg');}
+.twitter-login{background-image: url('./assets/twitter.svg');}
+.sociallogin-sizes{width: 40px;height: 40px;background-repeat: no-repeat;}
+.active {
+  color: navy !important;  
 }

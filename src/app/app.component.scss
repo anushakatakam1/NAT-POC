@@ -1,6 +1,6 @@
 .header {
   min-height: 4.5rem;
- }
+}
 
 .sidebar {
   width: 250px;
@@ -17,12 +17,21 @@
 }
 
 .content {
-  width: calc(100% - 250px) !important;
-  height: calc(100% - 4.5rem) !important;
   position: fixed;
   margin-right: 0;
-  left: 250px;
   overflow-y: auto;
+}
+
+.content-size {
+  width: calc(100% - 250px) !important;
+  height: calc(100% - 4.5rem) !important;
+  left: 250px;
+}
+
+.content-size1 {
+  width: 100% !important;
+  height: 100% !important;
+  left: 0;
 }
 
 @media screen and (min-width: 0px) and (max-width: 600px) {
@@ -33,12 +42,5 @@
     overflow-y: auto;
     height: 100%;
     position: fixed;
-  }
-
-  .content {
-    width: 100% !important;
-    position: relative;
-    margin-right: 0;
-    left: 0;
   }
 }
